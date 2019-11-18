@@ -11,6 +11,7 @@
             body{font-family: Arial, Helvetica, sans-serif; font-size: 1.6rem;}
             
             .btn{
+                vertical-align: middle;
                 font-size: 1.2rem;
                 width: 10rem;
                 height: 5rem;
@@ -29,6 +30,7 @@
         <p id="quoteCars"></p>
         <p id="quoteHotel"></p>
         <p id="quotePassages"></p>
+        
   
         <script type="text/javascript">
     
@@ -39,18 +41,18 @@
                 document.getElementById('quoteCars').innerHTML = JSON.stringify(responseJson);
             });
 
-            document.getElementById('searchHotel').addEventListener("click", async () => {
-                const URL_TO_FETCH = `http://localhost:8686/Passages`;
-                const response = await fetch(URL_TO_FETCH);
-                const responseJson = await response.json();
-                document.getElementById('quotePassages').innerHTML = JSON.stringify(responseJson);
-            });
-
             document.getElementById('searchPassagens').addEventListener("click", async () => {
                 const URL_TO_FETCH = `http://localhost:8989/hotel`;
                 const response = await fetch(URL_TO_FETCH);
                 const responseJson = await response.json();
                 document.getElementById('quoteHotel').innerHTML = JSON.stringify(responseJson);
+            });
+
+            document.getElementById('searchHotel').addEventListener("click", async () => {
+                const URL_TO_FETCH = `http://localhost:8686/passages`;
+                const response = await fetch(URL_TO_FETCH);
+                const responseJson = await response.json();
+                document.getElementById('quotePassages').innerHTML = JSON.stringify(responseJson);
             });
     
         </script>
