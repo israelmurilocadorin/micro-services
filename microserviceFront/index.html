@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Exercises JS</title>
+        <style>
+            html { font-size: 100%; }
+            @media only screen and (min-width: 768px){
+                html{ font-size: 62.5%; }
+            }
+            body{font-family: Arial, Helvetica, sans-serif; font-size: 1.6rem;}
+            
+            .btn{
+                font-size: 1.2rem;
+                width: 10rem;
+                height: 5rem;
+                border-radius: 5px;
+                background-color: #555555;
+                color: #ffffff;
+            }
+        
+        </style>
+    </head>
+    <body>
+
+        <button type="button" class="btn" name="button" id="search"> Solicitar carros </button>
+        <button type="button" class="btn" name="button" id="searchHotel"> Solicitar hoteis </button>
+        <button type="button" class="btn" name="button" id="searchPassagens"> Solicitar passagens </button>
+        <p id="quoteCars"></p>
+        <p id="quoteHotel"></p>
+        <p id="quotePassages"></p>
+  
+        <script type="text/javascript">
+    
+            document.getElementById('search').addEventListener("click", async () => {
+                const URL_TO_FETCH = `http://localhost:8888/cars`;
+                const response = await fetch(URL_TO_FETCH);
+                const responseJson = await response.json();
+                document.getElementById('quoteCars').innerHTML = JSON.stringify(responseJson);
+            });
+
+            document.getElementById('searchHotel').addEventListener("click", async () => {
+                const URL_TO_FETCH = `http://localhost:8686/Passages`;
+                const response = await fetch(URL_TO_FETCH);
+                const responseJson = await response.json();
+                document.getElementById('quotePassages').innerHTML = JSON.stringify(responseJson);
+            });
+
+            document.getElementById('searchPassagens').addEventListener("click", async () => {
+                const URL_TO_FETCH = `http://localhost:8989/hotel`;
+                const response = await fetch(URL_TO_FETCH);
+                const responseJson = await response.json();
+                document.getElementById('quoteHotel').innerHTML = JSON.stringify(responseJson);
+            });
+    
+        </script>
+    </body>
+</html>
