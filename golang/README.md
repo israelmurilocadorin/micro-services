@@ -2,9 +2,11 @@
 
 REST em Golang para compra de passagem aérea
 
-## Instalação
+## Executar projeto
 
-Construção
+```bash
+go run main.go
+```
 
 ## Utilizar a URL
 
